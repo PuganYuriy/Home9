@@ -72,7 +72,7 @@ if (B < A)
 }
 else
 {
-    Console.Write($"числа равны");
+    Console.Write(" ");
 }
 
 
