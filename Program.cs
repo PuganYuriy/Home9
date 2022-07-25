@@ -41,40 +41,66 @@
 // M = 1; N = 15 -> 120
 // M = 4; N = 8. -> 30
 
-int sumNumberRecusive(int start, int end)
-{
-    int sum = 0;
-    if (start == end)
-    {
-        return start;
-    }
-    else
-    {
-        return start + sumNumberRecusive(sum + start+1, end);
-    }
-}
-Console.Clear();
-Console.Write("Введите значение М: ");
-int A = Convert.ToInt32(Console.ReadLine());
+// int sumNumberRecusive(int start, int end)
+// {
+//     int sum = 0;
+//     if (start == end)
+//     {
+//         return start;
+//     }
+//     else
+//     {
+//         return start + sumNumberRecusive(sum + start+1, end);
+//     }
+// }
+// Console.Clear();
+// Console.Write("Введите значение М: ");
+// int A = Convert.ToInt32(Console.ReadLine());
 
-Console.Write("Введите значение N: ");
-int B = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите значение N: ");
+// int B = Convert.ToInt32(Console.ReadLine());
 
-if (A < B)
-{
-    Console.Write($"M = {A}; N = {B} -> ");
-    Console.WriteLine($"{sumNumberRecusive(A,B)}");
-}
-if (B < A)
-{
-    Console.Write($"N = {B}; M = {A} -> ");
-    Console.WriteLine($"{sumNumberRecusive(B,A)}");
-}
-else
-{
-    Console.Write(" ");
-}
+// if (A < B)
+// {
+//     Console.Write($"M = {A}; N = {B} -> ");
+//     Console.WriteLine($"{sumNumberRecusive(A,B)}");
+// }
+// if (B < A)
+// {
+//     Console.Write($"N = {B}; M = {A} -> ");
+//     Console.WriteLine($"{sumNumberRecusive(B,A)}");
+// }
+// else
+// {
+//     Console.Write(" ");
+// }
+
 
 
 // Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
 // m = 2, n = 3 -> A(m,n) = 29
+
+int AkkermanRecusive(int start, int end)
+{
+     if (start == 0)
+    {
+        return end + 1;
+    }
+    else if (end == 0 && start > 0)
+    {
+        return AkkermanRecusive(start-1, 1);
+    }
+    else
+    {
+        return AkkermanRecusive(start-1, AkkermanRecusive (start, end-1));
+    }
+}
+Console.Clear();
+Console.Write("Введите неотрицаиельное число М: ");
+int number1 = Convert.ToInt32(Console.ReadLine());
+
+Console.Write("Введите неотрицаиельное число N: ");
+int number2 = Convert.ToInt32(Console.ReadLine());
+
+    Console.Write($"M = {number1}; N = {number2} -> A(m,n) = ");
+    Console.WriteLine($"{AkkermanRecusive(number1,number2)}");
